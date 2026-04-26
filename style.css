@@ -1,0 +1,226 @@
+/* --- UNIVERSAL BOOKBRIDGE FRAMEWORK (UCC BRANDED) --- */
+:root {
+    --ucc-green: #006837;
+    --ucc-green-dark: #004d29;
+    --ucc-orange: #F39200;
+    --ucc-orange-light: #fff4e6;
+    --primary: #2C3E50;
+    --bg: #F8FAFC;
+    --white: #ffffff;
+    --text: #334155;
+    --gray: #64748b;
+    --gray-light: #cbd5e1;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --danger: #ef4444;
+    --success-bg: #dcfce7;
+    --error-bg: #fee2e2;
+}
+
+/* --- RESET & BASE --- */
+* { box-sizing: border-box; margin: 0; padding: 0; transition: 0.3s ease; }
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- THE "UCC" BACKGROUND ENGINE --- */
+.auth-bg, .register-bg, .admin-page, .settings-page {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('images/Ucc.png') no-repeat center center fixed !important;
+    background-size: cover !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+/* --- NAVIGATION (Fixed Top) --- */
+nav {
+    background: var(--white);
+    padding: 0.8rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    width: 100%;
+}
+
+.nav-links { display: flex; align-items: center; gap: 20px; }
+
+.nav-link-item {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link-item:hover { background: #f1f5f9; color: var(--ucc-green); }
+
+/* --- CONTENT WRAPPER --- */
+.content-wrapper {
+    margin-top: 100px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+/* --- GLASSMORPHISM CONTAINERS --- */
+.form-container, .settings-card, .admin-card {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.admin-card { max-width: 900px; }
+
+/* --- PASSWORD SHOW/HIDE TOGGLE --- */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.password-wrapper input { 
+    padding-right: 45px; 
+    margin-bottom: 0; /* Wrapper handles spacing */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%; 
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--gray);
+    z-index: 10;
+    font-size: 1.1rem;
+    padding: 5px;
+}
+
+.toggle-password:hover { color: var(--ucc-orange); }
+
+/* --- FORMS & INPUTS --- */
+.form-section {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 20px;
+    border-bottom: 3px solid var(--ucc-orange);
+    display: inline-block;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border: 2px solid #f1f5f9;
+    background: #f8fafc;
+    outline: none;
+    font-family: inherit;
+}
+
+input:focus { border-color: var(--ucc-orange); background: white; }
+
+label { display: block; margin-bottom: 6px; font-weight: 600; color: var(--primary); font-size: 0.9rem; }
+
+.name-row { display: flex; gap: 15px; }
+
+/* --- ADMIN ACTION ICONS --- */
+.action-edit {
+    color: var(--ucc-green);
+    font-size: 1.1rem;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.action-edit:hover { color: var(--ucc-green-dark); transform: scale(1.2); }
+
+.action-delete {
+    color: var(--danger);
+    font-size: 1.1rem;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.action-delete:hover { color: #b91c1c; transform: scale(1.2); }
+
+/* --- TABLES --- */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.admin-table th { background: #f1f5f9; padding: 15px; text-align: left; color: var(--gray); font-size: 0.85rem; }
+.admin-table td { padding: 15px; border-bottom: 1px solid #f1f5f9; font-size: 0.9rem; }
+
+.tag {
+    background: var(--ucc-orange-light);
+    color: var(--ucc-orange);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* --- BUTTONS --- */
+.btn-main {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--ucc-green), var(--ucc-green-dark));
+    color: white !important;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-main:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 104, 55, 0.3); }
+
+/* --- ALERTS --- */
+.error { color: var(--danger); background: var(--error-bg); padding: 12px; border-radius: 10px; margin-bottom: 20px; text-align: center; font-weight: 600; }
+.success-msg { color: var(--ucc-green); background: var(--success-bg); padding: 12px; border-radius: 10px; margin-bottom: 20px; text-align: center; font-weight: 600; }
+
+.highlight-word {
+    background: linear-gradient(to right, var(--ucc-green), #27ae60);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.outside-text { text-align: center; color: white; margin-bottom: 20px; }
+
+@media (max-width: 600px) {
+    .name-row { flex-direction: column; gap: 0; }
+    .form-container, .admin-card { width: 95%; padding: 25px; }
+}

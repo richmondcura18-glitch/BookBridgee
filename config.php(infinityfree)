@@ -1,0 +1,35 @@
+<?php
+// 1. Error Reporting (Keep this on until the site is working)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+/**
+ * Database Configuration for BookBridge
+ * Version: InfinityFree Online Server (Final)
+ */
+
+// 2. Database Connection Details
+$host = "sql208.infinityfree.com"; // Your MySQL Hostname
+$user = "if0_41354514";            // Your MySQL Username
+$pass = "2x5IuOW06ST";             // Your Hosting Account Password
+$db   = "if0_41354514_bookbride_db"; // Your Database Name (Note the 'd' in bride)
+
+// 3. Create the connection
+$conn = new mysqli($host, $user, $pass, $db);
+
+// 4. Check if the connection works
+if ($conn->connect_error) {
+    die("Database Connection Failed: " . $conn->connect_error);
+}
+
+// 5. Set Charset to UTF-8
+$conn->set_charset("utf8mb4");
+
+// 6. Start Session (Required for Login)
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Success! The database is now connected.
+?>
